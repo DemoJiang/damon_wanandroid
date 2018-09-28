@@ -47,12 +47,12 @@ public class LoginActivity extends MVPBaseActivity<LoginPresenter> implements Lo
 
     @Override
     public String getUserName() {
-        return null;
+        return "";
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return "";
     }
 
     /**
