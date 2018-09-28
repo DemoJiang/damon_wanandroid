@@ -1,7 +1,9 @@
-package com.damon;
+package com.damon.ui.main;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.damon.R;
 
 public class MainActivity extends AppCompatActivity {
 
