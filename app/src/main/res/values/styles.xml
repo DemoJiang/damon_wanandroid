@@ -6,6 +6,52 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--项目闪屏页主题  全屏-->
+    <style name="AppSplashTheme" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!--项目主题  无标题-->
+    <style name="AYAppTheme" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <!--长宽相关=========================================其余的样式抽取，均可根据需求继承    start-->
+    <!--长宽充满父布局-->
+    <style name="match2parent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <!--长宽包裹自身大小-->
+    <style name="wrap2content">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <!--长充满父布局，宽包裹自身大小-->
+    <style name="match2wrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <!--长包裹自身大小，宽充满父布局-->
+    <style name="wrap2match">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <!--长宽相关===========================================其余的样式抽取，均可根据需求继承     end-->
+
+
+    <style name="style_account_edit" parent="match2wrap">
+        <item name="android:textColor">@color/colorBlack_title</item>
+        <item name="android:textColorHint">@color/colorHint</item>
+        <item name="android:textSize">@dimen/login_text_size</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:background">@null</item>
     </style>
 
 </resources>

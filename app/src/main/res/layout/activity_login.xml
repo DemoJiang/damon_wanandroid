@@ -1,15 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="horizontal">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    style="@style/match2parent"
+    android:background="@color/colorBackground">
 
-    <Button
+    <ImageView
+        android:id="@+id/id_iv_logo"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="86dp"
+        android:src="@drawable/ic_account" />
+
+    <LinearLayout
+        android:id="@+id/id_layout1"
+        style="@style/match2wrap"
+        android:layout_below="@+id/id_iv_logo"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="56dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_account" />
+
+        <EditText
+            android:id="@+id/id_et_userName"
+            style="@style/style_account_edit"
+            android:layout_marginStart="6dp"
+            android:hint="@string/login_userName_hint" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/login_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/id_layout1"
+        android:layout_marginEnd="64dp"
+        android:layout_marginStart="64dp"
+        android:background="@color/grey_divider" />
+
+    <LinearLayout
+        android:id="@+id/id_layout2"
+        style="@style/match2wrap"
+        android:layout_below="@+id/login_divider"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="1dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_password" />
+
+        <EditText
+            android:id="@+id/id_et_password"
+            style="@style/style_account_edit"
+            android:layout_marginStart="6dp"
+            android:hint="@string/login_password_hint"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/id_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/id_layout2"
+        android:layout_marginEnd="64dp"
+        android:layout_marginStart="64dp"
+        android:background="@color/grey_divider" />
+
+
+    <com.allen.library.SuperButton
         android:id="@+id/id_btn_login"
         android:layout_width="230dp"
-        android:layout_height="52dp"
-        android:textSize="16sp"
-        android:text="登录"/>
+        android:layout_height="48dp"
+        android:layout_below="@+id/id_line"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="登录"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        stv:sCornersRadius="5dp"
+        stv:sGravity="center"
+        stv:sSolidColor="@color/colorMain" />
 
-</LinearLayout>
+</RelativeLayout>

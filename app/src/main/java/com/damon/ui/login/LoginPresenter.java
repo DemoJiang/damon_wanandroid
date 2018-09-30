@@ -42,7 +42,6 @@ public class LoginPresenter extends BasePresenter<LoginContact.View> implements 
                     @Override
                     public void onNext(BaseResponse<LoginData> value) {
                         if (mView == null) return;
-                        Log.d("===========", "onNext==" + value.getData().getUsername());
                         if (value.getErrorCode() == 0) {
                             mView.onLoginSuccess(value.getData());
                         } else if (value.getErrorCode() == -1) {

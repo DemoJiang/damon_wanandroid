@@ -4,11 +4,13 @@ package com.damon.ui.login;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.damon.R;
 import com.damon.base.activity.MVPBaseActivity;
 import com.damon.core.bean.LoginData;
 import com.damon.utils.CommonUtils;
+import com.damon.utils.StatusBarUtil;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -22,6 +24,10 @@ public class LoginActivity extends MVPBaseActivity<LoginPresenter> implements Lo
     private static final String TAG = "LoginActivity";
     @BindView(R.id.id_btn_login)
     Button mBtnLogin;
+    @BindView(R.id.id_et_userName)
+    EditText mUserNameView;
+    @BindView(R.id.id_et_password)
+    EditText mPasswordView;
 
 
     @Override
@@ -37,6 +43,7 @@ public class LoginActivity extends MVPBaseActivity<LoginPresenter> implements Lo
     @Override
     protected void inject() {
         activityComponent.inject(this);
+        StatusBarUtil.immersive(this);
     }
 
     @OnClick(R.id.id_btn_login)
@@ -47,12 +54,12 @@ public class LoginActivity extends MVPBaseActivity<LoginPresenter> implements Lo
 
     @Override
     public String getUserName() {
-        return "";
+        return mUserNameView.getText().toString().trim();
     }
 
     @Override
     public String getPassword() {
-        return "";
+        return mPasswordView.getText().toString().trim();
     }
 
     /**
@@ -60,7 +67,7 @@ public class LoginActivity extends MVPBaseActivity<LoginPresenter> implements Lo
      */
     @Override
     public void onLoginSuccess(LoginData loginData) {
-        CommonUtils.showToast(this, "登录成功");
+        CommonUtils.showToast(this, loginData.getUsername()+" 欢迎您");
     }
 
     /**

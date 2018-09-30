@@ -3,4 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <color name="colorMain">#FF4081</color>
+    <color name="colorBackground">#EEEEEE</color>       <!--所有界面的背景底色-->
+    <color name="colorCard">#FFFFFF</color>             <!--比背景颜色稍微深一点-->
+    <color name="colorBlack_title">#111111</color>           <!--标题色-->
+    <color name="grey_divider">#E5E5E5</color>
+    <color name="colorHint">#999999</color>             <!--特别淡的文字用色 -->
+    <color name="delete_text">#cccccc</color>
 </resources>

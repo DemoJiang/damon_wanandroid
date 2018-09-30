@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--系统相关-->
+    <dimen name="app_name_size">20sp</dimen>
+
+
+    <dimen name="login_text_size">18sp</dimen>
+
+
+</resources>
