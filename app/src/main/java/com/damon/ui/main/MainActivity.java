@@ -39,6 +39,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 
     @Override
     protected void onAttachView() {
+        // 当tab个数大于 3 时处理切换动画
         BottomNavigationViewHelper.disableShiftMode(mBottomNavigationView);
         mBottomNavigationView.setOnNavigationItemSelectedListener(this);
         initFragment();
