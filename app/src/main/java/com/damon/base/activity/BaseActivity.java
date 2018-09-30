@@ -32,15 +32,14 @@ public abstract class BaseActivity extends AppCompatActivity  implements IView {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
+
+        //绑定初始化 ButterKnife
+        unbinder = ButterKnife.bind(this);
         // 依赖注入
         activityComponent = DaggerActivityComponent.builder()
                 .appComponent(App.getContext().getAppComponent())
                 .build();
-
         onAttachView();
-
-        //绑定初始化 ButterKnife
-        unbinder = ButterKnife.bind(this);
     }
 
     @Override

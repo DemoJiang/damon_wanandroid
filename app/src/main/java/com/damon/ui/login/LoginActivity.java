@@ -9,6 +9,7 @@ import android.widget.EditText;
 import com.damon.R;
 import com.damon.base.activity.MVPBaseActivity;
 import com.damon.core.bean.LoginData;
+import com.damon.ui.main.MainActivity;
 import com.damon.utils.CommonUtils;
 import com.damon.utils.StatusBarUtil;
 
@@ -68,6 +69,7 @@ public class LoginActivity extends MVPBaseActivity<LoginPresenter> implements Lo
     @Override
     public void onLoginSuccess(LoginData loginData) {
         CommonUtils.showToast(this, loginData.getUsername()+" 欢迎您");
+        startActivity(MainActivity.class,null);
     }
 
     /**

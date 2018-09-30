@@ -7,16 +7,30 @@ import android.view.MenuItem;
 
 import com.damon.R;
 import com.damon.base.activity.BaseActivity;
+import com.damon.helper.BottomNavigationViewHelper;
 import com.damon.helper.FragmentHelper;
+import com.damon.ui.home.HomeFragment;
+import com.damon.ui.knowledge.KnowFragment;
+import com.damon.ui.navigation.NavigationFragment;
+import com.damon.ui.project.ProjectFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+
 
 public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
+    @BindView(R.id.id_bnv_tab)
+    BottomNavigationView mBottomNavigationView;
+
     private List<Fragment> mFragmentList;
     private FragmentHelper mFragmentHelper;
+    private HomeFragment mHomeFragment;
+    private KnowFragment mKnowFragment;
+    private NavigationFragment mNavigationFragment;
+    private ProjectFragment mProjectFragment;
 
     @Override
     protected int getLayoutId() {
@@ -25,16 +39,28 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 
     @Override
     protected void onAttachView() {
-        mFragmentList = new ArrayList<>();
+        BottomNavigationViewHelper.disableShiftMode(mBottomNavigationView);
+        mBottomNavigationView.setOnNavigationItemSelectedListener(this);
         initFragment();
         mFragmentHelper = new FragmentHelper(getSupportFragmentManager(),R.id.id_fl_contentView,mFragmentList);
         mFragmentHelper.addAndShowFragment(0);
     }
 
     /**
-     * 初始化 fragment
+     * 初始化 fragment 并加入集合
      */
     private void initFragment() {
+        mFragmentList = new ArrayList<>();
+
+        mHomeFragment = HomeFragment.getInstance();
+        mKnowFragment = KnowFragment.getInstance();
+        mNavigationFragment = NavigationFragment.getInstance();
+        mProjectFragment = ProjectFragment.getInstance();
+
+        mFragmentList.add(mHomeFragment);
+        mFragmentList.add(mKnowFragment);
+        mFragmentList.add(mNavigationFragment);
+        mFragmentList.add(mProjectFragment);
     }
 
     /**
