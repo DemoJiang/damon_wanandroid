@@ -11,8 +11,11 @@ public class Api {
     // 登录
     public static final String LOGIN = BASE_URL + "user/login";
 
-    // 广告
-    public static final String Banner = BASE_URL + "";
+    // 首页广告
+    public static final String Banner = BASE_URL + "banner/json";
+
+    // 首页文章
+    public static final String Article = BASE_URL + "article/list/";
 
 
 

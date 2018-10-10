@@ -5,6 +5,7 @@ import android.app.Application;
 import com.damon.di.component.AppComponent;
 import com.damon.di.component.DaggerAppComponent;
 import com.damon.di.module.AppModule;
+import com.damon.utils.SharedPrefUtils;
 
 /**
  * @author: DamonJiang
@@ -18,6 +19,9 @@ public class App extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
+        // 初始化 sp 工具类
+        SharedPrefUtils.init(this);
+
         context = (App) this.getApplicationContext();
         appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(context))

@@ -18,4 +18,8 @@ public class Constants {
     public static final String PATH_DATA = App.getContext().getCacheDir().getAbsolutePath() + File.separator + "data";
 
     public static final String PATH_CACHE = PATH_DATA + "/NetCache";
+
+    public static final String USER_NAME = "username";
+
+    public static final String USER_PASSWORD = "password";
 }

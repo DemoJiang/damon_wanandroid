@@ -1,9 +1,14 @@
 package com.damon.core;
 
 
+import com.damon.core.bean.ArticleData;
+import com.damon.core.bean.ArticleListData;
+import com.damon.core.bean.BannerData;
 import com.damon.core.bean.BaseResponse;
 import com.damon.core.bean.LoginData;
 import com.damon.core.http.ApiService;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -31,11 +36,30 @@ public class DataManager {
 
     /**
      * 登录
+     *
      * @param username
      * @param password
      * @return
      */
     public Observable<BaseResponse<LoginData>> getLoginData(String username, String password) {
         return mApiService.getLoginData(username, password);
+    }
+
+    /**
+     * 广告轮播
+     *
+     * @return
+     */
+    public Observable<BaseResponse<List<BannerData>>> getBannerData() {
+        return mApiService.getBannerData();
+    }
+
+    /**
+     * 首页文章列表
+     *
+     * @return
+     */
+    public Observable<BaseResponse<ArticleListData>> getHomeArticleData(int num) {
+        return mApiService.getHomeArticleData(num);
     }
 }

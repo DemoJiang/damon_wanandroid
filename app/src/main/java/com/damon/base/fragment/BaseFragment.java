@@ -26,7 +26,7 @@ import butterknife.Unbinder;
  */
 public abstract class BaseFragment extends Fragment implements IView {
     private Unbinder unBinder;
-    private FragmentComponent fragmentComponent;
+    protected FragmentComponent fragmentComponent;
 
     protected abstract int getLayoutId();              // 初始化 UI
 

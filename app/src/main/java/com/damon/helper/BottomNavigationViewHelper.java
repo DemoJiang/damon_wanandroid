@@ -11,7 +11,7 @@ import java.lang.reflect.Field;
 /**
  * @author: DamonJiang
  * @date: 2018/9/30 0030
- * @description:
+ * @description:  处理 BottomNavigationView 导航大于3个时的问题
  */
 public class BottomNavigationViewHelper {
     @SuppressLint("RestrictedApi")

@@ -2,8 +2,9 @@ package com.damon.di.component;
 
 
 
-import com.damon.di.module.ActivityModule;
+import com.damon.di.module.FragmentModule;
 import com.damon.di.scope.FragmentScope;
+import com.damon.ui.home.HomeFragment;
 
 import dagger.Component;
 
@@ -13,7 +14,7 @@ import dagger.Component;
  * @description:
  */
 @FragmentScope
-@Component(modules = ActivityModule.class, dependencies = AppComponent.class)
+@Component(modules = FragmentModule.class, dependencies = AppComponent.class)
 public interface FragmentComponent {
-//    void inject(HomeFragment fragment);
+    void inject(HomeFragment fragment);
 }
