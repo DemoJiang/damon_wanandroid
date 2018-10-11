@@ -1,7 +1,9 @@
 package com.damon.ui.main;
 
+import android.Manifest;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
@@ -13,6 +15,7 @@ import com.damon.ui.home.HomeFragment;
 import com.damon.ui.knowledge.KnowFragment;
 import com.damon.ui.navigation.NavigationFragment;
 import com.damon.ui.project.ProjectFragment;
+import com.damon.utils.PermissionUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +38,12 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        checkRequestPermission();
     }
 
     @Override
@@ -87,5 +96,23 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 break;
         }
         return true;
+    }
+
+    //动态申请权限
+    private void checkRequestPermission() {
+
+        /**
+         * 包含 定位权限，camera权限，读写权限
+         */
+        String[] permissions = {
+                Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_NETWORK_STATE};
+
+        String[] p = PermissionUtil.checkPremission(this, permissions);
+        if (p != null && p.length > 0) {
+            ActivityCompat.requestPermissions(this, p, 10);
+        }
     }
 }

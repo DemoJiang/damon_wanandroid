@@ -3,18 +3,14 @@ package com.damon.ui.home;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.damon.R;
 import com.damon.adapter.HomePageAdapter;
 import com.damon.base.fragment.MVPBaseFragment;
-import com.damon.core.bean.ArticleData;
 import com.damon.core.bean.ArticleListData;
 import com.damon.core.bean.BannerData;
 import com.damon.helper.GlideLoaderHelper;
-import com.damon.utils.StatusBarUtil;
 import com.damon.utils.ToastUtil;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -54,12 +50,12 @@ public class HomeFragment extends MVPBaseFragment<HomePresenter> implements Home
     @Override
     protected void onAttachView() {
         super.onAttachView();
-        mPresenter.initBannerData();
-        mPresenter.initArticleData();
         mBanner = (Banner) getActivity().getLayoutInflater().inflate(R.layout.container_banner,null);
         mBanner.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 getContext().getResources().getDisplayMetrics().heightPixels / 4));
         mRecycleView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
+        mPresenter.initBannerData();
+        mPresenter.initArticleData();
     }
 
     @Override
