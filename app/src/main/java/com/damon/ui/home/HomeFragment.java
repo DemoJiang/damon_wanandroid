@@ -37,6 +37,22 @@ public class HomeFragment extends MVPBaseFragment<HomePresenter> implements Home
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        if(mBanner != null){
+            mBanner.startAutoPlay();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if(mBanner != null){
+            mBanner.stopAutoPlay();
+        }
+    }
+
+    @Override
     protected int getLayoutId() {
         return R.layout.fragment_home;
     }
