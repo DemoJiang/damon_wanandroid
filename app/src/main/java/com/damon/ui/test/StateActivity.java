@@ -4,12 +4,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import com.damon.R;
-import com.damon.utils.CommonUtils;
-import com.damon.widget.StateLayout;
+import com.damon.widget.PageLayout;
 
 
 /**
@@ -18,54 +17,57 @@ import com.damon.widget.StateLayout;
  * @description:
  */
 public class StateActivity extends AppCompatActivity implements View.OnClickListener {
-    StateLayout stateLayout;
-    LinearLayout mView;
+    private PageLayout pageLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-
-
-        mView = findViewById(R.id.id_ll);
         findViewById(R.id.id_btn_lodding).setOnClickListener(this);
         findViewById(R.id.id_btn_content).setOnClickListener(this);
         findViewById(R.id.id_btn_empty).setOnClickListener(this);
         findViewById(R.id.id_btn_errow).setOnClickListener(this);
+
+        pageLayout = new PageLayout.Builder(this)
+                .initPage(findViewById(R.id.id_image))
+                .setCustomView(LayoutInflater.from(this).inflate(R.layout.layout_empty, null))
+                .setOnRetryListener(new PageLayout.OnRetryClickListener() {
+                    @Override
+                    public void onRetry() {
+                        loadData();
+                    }
+
+
+                })
+                .create();
+        pageLayout.hide();
+    }
+
+    private void loadData() {
+        pageLayout.showLoading();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                pageLayout.hide();
+            }
+        },2000);
     }
 
     @Override
     public void onClick(View view) {
-        StateLayout.Builder mStateLayout = new StateLayout.Builder(this);
-        stateLayout = mStateLayout.initPage(mView)
-                .setOnRetryListener(new StateLayout.Builder.OnRetryClickListener() {
-                    @Override
-                    public void onClick() {
-                        CommonUtils.showToast(StateActivity.this,"重新加载数据");
-                        stateLayout.showLoading();
-                        new Handler().postDelayed(()->stateLayout.hideContent(), 3000);
-                    }
-                })
-                .create();
-
         switch (view.getId()) {
-
             case R.id.id_btn_lodding:
-
-                stateLayout.showLoading();
-
-                new Handler().postDelayed(()->stateLayout.hideContent(), 3000);
-
+                pageLayout.showLoading();
                 break;
             case R.id.id_btn_content:
-
+                pageLayout.hide();
                 break;
             case R.id.id_btn_empty:
-                stateLayout.showEmpty();
+                pageLayout.showEmpty();
                 break;
             case R.id.id_btn_errow:
-                stateLayout.showError();
+                pageLayout.showError();
                 break;
         }
     }

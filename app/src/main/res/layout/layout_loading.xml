@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="加载中..."
-        android:textColor="@color/colorBlack_title"
+        android:textColor="#b1b1b1"
         android:textSize="22sp"/>
 
 </com.damon.widget.BlinkLayout>
