@@ -5,6 +5,7 @@ package com.damon.di.component;
 import com.damon.app.App;
 import com.damon.core.DataManager;
 import com.damon.di.module.AppModule;
+import com.damon.utils.DownloadUtils;
 
 import javax.inject.Singleton;
 
@@ -22,5 +23,7 @@ public interface AppComponent {
     App getApp();
 
     DataManager getDataManager();
+
+    DownloadUtils getDownloadUtils();
 
 }
