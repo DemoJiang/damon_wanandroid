@@ -1,7 +1,6 @@
 package com.damon.core;
 
 
-import com.damon.core.bean.ArticleData;
 import com.damon.core.bean.ArticleListData;
 import com.damon.core.bean.BannerData;
 import com.damon.core.bean.BaseResponse;

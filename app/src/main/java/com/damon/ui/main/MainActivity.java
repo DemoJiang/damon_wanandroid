@@ -11,11 +11,13 @@ import com.damon.R;
 import com.damon.base.activity.BaseActivity;
 import com.damon.helper.BottomNavigationViewHelper;
 import com.damon.helper.FragmentHelper;
+import com.damon.helper.ResourceHelper;
 import com.damon.ui.home.HomeFragment;
 import com.damon.ui.knowledge.KnowFragment;
 import com.damon.ui.navigation.NavigationFragment;
 import com.damon.ui.project.ProjectFragment;
 import com.damon.utils.PermissionUtil;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;

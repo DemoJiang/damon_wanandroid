@@ -35,6 +35,7 @@ ext {
 }
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.android.support:cardview-v7:27.1.1'
@@ -42,6 +43,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // Google AdMob
+    implementation 'com.google.android.gms:play-services-ads:17.0.0'
 
     // dagger2
     implementation "com.google.dagger:dagger:2.14.1"
