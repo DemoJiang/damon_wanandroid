@@ -23,4 +23,8 @@ public class Constants {
     public static final String USER_NAME = "username";
 
     public static final String USER_PASSWORD = "password";
+
+
+    public static final String IS_COMMON_SITE = "is_common_site";
+    public static final String MENU_BUILDER = "MenuBuilder";
 }

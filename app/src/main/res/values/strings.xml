@@ -15,6 +15,16 @@
     <string name="knowledge_hierarchy">体系</string>
     <string name="navigation">导航</string>
     <string name="project">项目</string>
+    <string name="menu_share">分享</string>
+
+    <string name="share">分享</string>
+    <string name="collect">收藏</string>
+    <string name="cancel_collect">取消收藏</string>
+    <string name="collect_success">收藏成功</string>
+    <string name="collect_fail">收藏失败</string>
+    <string name="cancel_collect_success">取消收藏成功</string>
+    <string name="cancel_collect_fail">取消收藏失败</string>
+    <string name="open_it_with_browser">用系统浏览器打开</string>
 
 
 </resources>

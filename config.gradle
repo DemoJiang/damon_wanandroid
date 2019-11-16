@@ -1,0 +1,65 @@
+ext {
+
+    android = [
+            compileSdkVersion       : 28,
+            buildToolsVersion       : "28.0.2",
+            minSdkVersion           : 22,
+            targetSdkVersion        : 28,
+            versionCode             : 1,
+            versionName             : "1.0",
+            renderscriptTargetApi   : 21
+    ]
+
+    version = [
+
+            "butterknife"      : '10.0.0',
+            "retrofit"         : '2.2.0',
+            "adapter-rxjava"   : '2.2.0',
+            "converter-gson"   : '2.2.0',
+            "rxandroid"        : '2.1.0',
+            "rxjava"           : '2.2.3',
+            "okhttp"           : '3.1.2',
+            "dagger"           : '2.14.1',
+            "smartrefresh"     : '1.0.5.1',
+            "supportLibrary"   : '27.1.1',
+            "agentweb"         : '4.0.2',
+            "smartrefresh"     : '1.0.5.1',
+            "glide"            : '3.7.0',
+            "rcvadapter"       : '2.9.30',
+            "banner"           : '1.4.10',
+            "superTextView"    : '2.1.6',
+    ]
+
+
+    dependencies = [
+            //base
+
+
+            // findviewbyid
+            "butterknife"           : "com.jakewharton:butterknife:${version["butterknife"]}",
+            "butterknife-compiler"  : "com.jakewharton:butterknife-compiler:${version["butterknife"]}",
+
+            // http
+            "okhttp"                : "com.squareup.okhttp3:logging-interceptor:${version["okhttp"]}",
+            "retrofit"              : "com.squareup.retrofit2:retrofit:${version["retrofit"]}",
+            "adapter-rxjava"        : "com.squareup.retrofit2:adapter-rxjava2:${version["adapter-rxjava"]}",
+            "converter-gson"        : "com.squareup.retrofit2:converter-gson:${version["converter-gson"]}",
+            "converter-scalars"     : "com.squareup.retrofit2:converter-scalars:2.0.0-beta4",
+
+            // rx
+            "rxandroid"             : "io.reactivex.rxjava2:rxandroid:${version["rxandroid"]}",
+            "rxjava"                : "io.reactivex.rxjava2:rxjava:${version["rxjava"]}",
+
+
+            // UI
+            "agentweb"              : "com.just.agentweb:agentweb:${version["agentweb"]}",
+            "smartrefreshLayout"    : "com.scwang.smartrefresh:SmartRefreshLayout:${version["smartrefresh"]}",
+            "smartrefreshHeader"    : "com.scwang.smartrefresh:SmartRefreshHeader:${version["smartrefresh"]}",
+            "glide"                 : "com.github.bumptech.glide:glide:${version["glide"]}",
+            "rcvadapter"            : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${version["rcvadapter"]}",
+            "banner"                : "com.youth.banner:banner:${version["banner"]}",
+            "superTextView"         : "com.github.lygttpod:SuperTextView:${version["superTextView"]}",
+
+    ]
+
+}

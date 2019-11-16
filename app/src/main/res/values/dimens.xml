@@ -6,5 +6,7 @@
 
     <dimen name="login_text_size">18sp</dimen>
 
+    <dimen name="toolbar_height_size">54dp</dimen>
+
 
 </resources>

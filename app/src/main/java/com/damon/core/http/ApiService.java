@@ -1,7 +1,6 @@
 package com.damon.core.http;
 
 
-import com.damon.core.bean.ArticleData;
 import com.damon.core.bean.ArticleListData;
 import com.damon.core.bean.BannerData;
 import com.damon.core.bean.BaseResponse;
@@ -10,14 +9,11 @@ import com.damon.core.bean.LoginData;
 import java.util.List;
 
 import io.reactivex.Observable;
-import okhttp3.RequestBody;
-import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 /**
  * 网络请求接口设置
@@ -44,7 +40,7 @@ public interface ApiService {
      * 首页文章列表数据
      * @return
      */
-    @GET(Api.Article+"{num}/json")
+    @GET(Api.ARTICLE+"{num}/json")
     Observable<BaseResponse<ArticleListData>> getHomeArticleData(@Path("num") int num);
 
 }

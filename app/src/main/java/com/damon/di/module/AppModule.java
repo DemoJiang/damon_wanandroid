@@ -1,10 +1,6 @@
 package com.damon.di.module;
 
 
-
-
-import android.provider.SyncStateContract;
-
 import com.damon.app.App;
 import com.damon.config.Constants;
 import com.damon.core.http.Api;

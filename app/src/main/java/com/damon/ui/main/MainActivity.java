@@ -1,23 +1,21 @@
 package com.damon.ui.main;
 
 import android.Manifest;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 import android.view.MenuItem;
 
 import com.damon.R;
 import com.damon.base.activity.BaseActivity;
 import com.damon.helper.BottomNavigationViewHelper;
 import com.damon.helper.FragmentHelper;
-import com.damon.helper.ResourceHelper;
 import com.damon.ui.home.HomeFragment;
 import com.damon.ui.knowledge.KnowFragment;
 import com.damon.ui.navigation.NavigationFragment;
 import com.damon.ui.project.ProjectFragment;
 import com.damon.utils.PermissionUtil;
-import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +49,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     @Override
     protected void onAttachView() {
         // 当tab个数大于 3 时处理切换动画
-        BottomNavigationViewHelper.disableShiftMode(mBottomNavigationView);
+        BottomNavigationViewHelper.removeNavigationShiftMode(mBottomNavigationView);
         mBottomNavigationView.setOnNavigationItemSelectedListener(this);
         initFragment();
         mFragmentHelper = new FragmentHelper(getSupportFragmentManager(),R.id.id_fl_contentView,mFragmentList);

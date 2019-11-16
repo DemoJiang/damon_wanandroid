@@ -6,7 +6,7 @@ package com.damon.core.http;
  */
 public class Api {
     //Base URL.
-    public static final String BASE_URL = "http://www.wanandroid.com/";
+    public static final String BASE_URL = "https://www.wanandroid.com/";
 
     // 登录
     public static final String LOGIN = BASE_URL + "user/login";
@@ -15,7 +15,7 @@ public class Api {
     public static final String Banner = BASE_URL + "banner/json";
 
     // 首页文章
-    public static final String Article = BASE_URL + "article/list/";
+    public static final String ARTICLE = BASE_URL + "article/list/";
 
 
 

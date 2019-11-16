@@ -12,7 +12,7 @@
         android:layout_weight="1"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <android.support.design.widget.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/id_bnv_tab"
         style="@style/match2wrap"
         android:layout_gravity="bottom"

@@ -1,19 +1,23 @@
 package com.damon.ui.home;
 
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.content.Intent;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.damon.R;
 import com.damon.adapter.HomePageAdapter;
 import com.damon.base.fragment.MVPBaseFragment;
 import com.damon.core.bean.ArticleListData;
 import com.damon.core.bean.BannerData;
 import com.damon.helper.GlideLoaderHelper;
-import com.damon.utils.ToastUtil;
+import com.damon.ui.article.ArticleDetailActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,9 +94,14 @@ public class HomeFragment extends MVPBaseFragment<HomePresenter> implements Home
         mBanner.setImageLoader(new GlideLoaderHelper());
         mBanner.isAutoPlay(true);
         mBanner.setDelayTime(3500);
-        mBanner.setOnBannerListener(position ->
-                ToastUtil.showToast(getActivity(), "你点击了第 " + position + " 条广告"));
-
+        mBanner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                Intent intent = new Intent(getActivity(), ArticleDetailActivity.class);
+                intent.putExtra("url",bannerUrlList.get(position));
+                startActivity(intent);
+            }
+        });
         mBanner.start();
     }
 
@@ -100,6 +109,14 @@ public class HomeFragment extends MVPBaseFragment<HomePresenter> implements Home
     public void onShowArticleData(ArticleListData articleData) {
         HomePageAdapter homePageAdapter = new HomePageAdapter(articleData.getDatas());
         homePageAdapter.setHeaderView(mBanner);
+        homePageAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent = new Intent(getActivity(), ArticleDetailActivity.class);
+                intent.putExtra("url",articleData.getDatas().get(position).getLink());
+                startActivity(intent);
+            }
+        });
         mRecycleView.setAdapter(homePageAdapter);
     }
 }
