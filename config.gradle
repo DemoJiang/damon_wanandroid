@@ -59,6 +59,7 @@ ext {
             "rcvadapter"            : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${version["rcvadapter"]}",
             "banner"                : "com.youth.banner:banner:${version["banner"]}",
             "superTextView"         : "com.github.lygttpod:SuperTextView:${version["superTextView"]}",
+            "tablayout"             : "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
 
     ]
 

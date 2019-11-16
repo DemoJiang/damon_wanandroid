@@ -1,11 +1,15 @@
 package com.damon.ui.home;
 
+import android.util.Log;
+
 import com.damon.base.AYBaseObserver;
 import com.damon.base.presenter.BasePresenter;
 import com.damon.core.DataManager;
 import com.damon.core.bean.ArticleListData;
 import com.damon.core.bean.BannerData;
 import com.damon.core.bean.BaseResponse;
+import com.google.gson.Gson;
+
 
 import java.util.List;
 
@@ -54,6 +58,10 @@ public class HomePresenter extends BasePresenter<HomeContact.View> implements Ho
                 .subscribeWith(new AYBaseObserver<BaseResponse<ArticleListData>>(mView, "文章获取失败") {
                     @Override
                     public void onNext(BaseResponse<ArticleListData> value) {
+
+                        Gson gson = new Gson();
+                        String str = gson.toJson(value.getData());
+                        Log.d("jk", "onNext: "+str);
                         if (mView == null) return;
                         if (value.getErrorCode() == 0) {
                             mView.onShowArticleData(value.getData());

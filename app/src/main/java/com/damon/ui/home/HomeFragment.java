@@ -11,10 +11,12 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.damon.R;
 import com.damon.adapter.HomePageAdapter;
 import com.damon.base.fragment.MVPBaseFragment;
+import com.damon.config.Constants;
 import com.damon.core.bean.ArticleListData;
 import com.damon.core.bean.BannerData;
 import com.damon.helper.GlideLoaderHelper;
 import com.damon.ui.article.ArticleDetailActivity;
+import com.damon.utils.CommonUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
@@ -98,7 +100,8 @@ public class HomeFragment extends MVPBaseFragment<HomePresenter> implements Home
             @Override
             public void OnBannerClick(int position) {
                 Intent intent = new Intent(getActivity(), ArticleDetailActivity.class);
-                intent.putExtra("url",bannerUrlList.get(position));
+                intent.putExtra(Constants.ARTICLE_LINK,bannerUrlList.get(position));
+                intent.putExtra(Constants.ARTICLE_TITLE,bannerTitleList.get(position));
                 startActivity(intent);
             }
         });
@@ -107,14 +110,31 @@ public class HomeFragment extends MVPBaseFragment<HomePresenter> implements Home
 
     @Override
     public void onShowArticleData(ArticleListData articleData) {
-        HomePageAdapter homePageAdapter = new HomePageAdapter(articleData.getDatas());
+        HomePageAdapter homePageAdapter = new HomePageAdapter(R.layout.item_article,articleData.getDatas());
         homePageAdapter.setHeaderView(mBanner);
         homePageAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(getActivity(), ArticleDetailActivity.class);
-                intent.putExtra("url",articleData.getDatas().get(position).getLink());
+                intent.putExtra(Constants.ARTICLE_LINK,articleData.getDatas().get(position).getLink());
+                intent.putExtra(Constants.ARTICLE_TITLE,articleData.getDatas().get(position).getTitle());
                 startActivity(intent);
+            }
+        });
+        homePageAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                switch (view.getId()) {
+                    case R.id.item_search_pager_like_iv:
+                        if(articleData.getDatas().get(position).isCollect()){
+                            CommonUtils.showToast(getActivity(),"已取消");
+                        }else{
+                            CommonUtils.showToast(getActivity(),"已收藏");
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
         });
         mRecycleView.setAdapter(homePageAdapter);

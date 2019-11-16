@@ -27,4 +27,6 @@ public class Constants {
 
     public static final String IS_COMMON_SITE = "is_common_site";
     public static final String MENU_BUILDER = "MenuBuilder";
+    public static final String ARTICLE_TITLE = "article_title";
+    public static final String ARTICLE_LINK = "article_link";
 }

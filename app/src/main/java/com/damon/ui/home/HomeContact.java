@@ -15,10 +15,11 @@ import java.util.List;
  */
 public interface HomeContact {
     interface View extends IView {
-//        void initView();
+        //        void initView();
         void onShowBannerData(List<BannerData> bannerData);
         void onShowArticleData(ArticleListData articleListData);
     }
+
     interface Presenter extends IPresenter<HomeContact.View> {
         void initBannerData();           // 加载广告数据
         void initArticleData();          // 加载文章列表数据

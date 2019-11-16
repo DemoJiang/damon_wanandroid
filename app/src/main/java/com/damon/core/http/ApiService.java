@@ -5,6 +5,7 @@ import com.damon.core.bean.ArticleListData;
 import com.damon.core.bean.BannerData;
 import com.damon.core.bean.BaseResponse;
 import com.damon.core.bean.LoginData;
+import com.damon.core.bean.ProjectTabData;
 
 import java.util.List;
 
@@ -42,5 +43,12 @@ public interface ApiService {
      */
     @GET(Api.ARTICLE+"{num}/json")
     Observable<BaseResponse<ArticleListData>> getHomeArticleData(@Path("num") int num);
+
+    /**
+     * 项目分类 tab 数据
+     * @return
+     */
+    @GET(Api.PROJECT_TAB)
+    Observable<BaseResponse<List<ProjectTabData>>> getProjectTabData();
 
 }

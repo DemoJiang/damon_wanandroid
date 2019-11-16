@@ -17,6 +17,9 @@ public class Api {
     // 首页文章
     public static final String ARTICLE = BASE_URL + "article/list/";
 
+    // 项目tab
+    public static final String PROJECT_TAB = BASE_URL + "project/tree/json";
+
 
 
 }

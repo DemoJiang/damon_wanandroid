@@ -78,4 +78,7 @@ dependencies {
 
     // 超级webview
     implementation rootProject.ext.dependencies["agentweb"]
+
+    // tablayout
+    implementation rootProject.ext.dependencies["tablayout"]
 }

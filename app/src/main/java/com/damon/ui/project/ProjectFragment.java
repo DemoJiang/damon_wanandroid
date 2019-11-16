@@ -1,13 +1,16 @@
 package com.damon.ui.project;
 
-import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
 
 import com.damon.R;
+import com.damon.base.fragment.MVPBaseFragment;
+import com.damon.core.bean.ProjectTabData;
+import com.flyco.tablayout.SlidingTabLayout;
+
+import java.util.List;
+
+import androidx.viewpager.widget.ViewPager;
+import butterknife.BindView;
 
 
 /**
@@ -15,16 +18,36 @@ import com.damon.R;
  * @date: 2018/9/30 0030
  * @description:
  */
-public class ProjectFragment extends Fragment {
+public class ProjectFragment extends MVPBaseFragment<ProjectPresent> implements ProjectContact.View {
+    @BindView(R.id.project_tab_layout)
+    SlidingTabLayout mSlidingTabLayout;
+    @BindView(R.id.project_viewpager)
+    ViewPager mViewPager;
+
     public static ProjectFragment getInstance() {
         ProjectFragment fragment = new ProjectFragment();
         return fragment;
     }
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_project,container,false);
-        return view;
+    protected int getLayoutId() {
+        return R.layout.fragment_project;
     }
 
+
+    @Override
+    protected void inject() {
+        fragmentComponent.inject(this);
+    }
+
+    @Override
+    protected void onAttachView() {
+        super.onAttachView();
+        
+    }
+
+    @Override
+    public void onShowProjectTabData(List<ProjectTabData> projectTabData) {
+
+    }
 }
