@@ -6,6 +6,7 @@ import com.damon.di.module.FragmentModule;
 import com.damon.di.scope.FragmentScope;
 import com.damon.ui.home.HomeFragment;
 import com.damon.ui.project.ProjectFragment;
+import com.damon.ui.project.ProjectListFragment;
 
 import dagger.Component;
 
@@ -19,4 +20,5 @@ import dagger.Component;
 public interface FragmentComponent {
     void inject(HomeFragment fragment);
     void inject(ProjectFragment fragment);
+    void inject(ProjectListFragment fragment);
 }

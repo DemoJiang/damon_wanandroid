@@ -16,20 +16,13 @@
         <com.flyco.tablayout.SlidingTabLayout
             android:id="@+id/project_tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@color/colorCard"
+            android:layout_height="52dp"
+            android:background="@color/colorPrimaryDark"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            app:tl_indicator_color="@color/light_red"
-            app:tl_textSelectColor="@color/white"
-            app:tl_textUnselectColor="@color/grey_divider"
-            app:tl_divider_color="@color/light_red"
-            app:tl_divider_width="1dp"
-            app:tl_divider_padding="@dimen/dp_10"
-            app:tl_indicator_corner_radius="5dp"
-            app:tl_indicator_margin_left="5dp"
-            app:tl_indicator_margin_right="5dp"
-            app:tl_indicator_style="BLOCK"
+            app:tl_textSelectColor="@color/colorMain"
+            app:tl_textUnselectColor="@color/colorCard"
+            app:tl_indicator_color="@color/colorMain"
             android:visibility="visible" />
 
         <View
@@ -43,6 +36,6 @@
             android:id="@+id/project_viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="invisible" />
+            android:visibility="visible" />
     </LinearLayout>
 </FrameLayout>

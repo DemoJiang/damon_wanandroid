@@ -20,6 +20,9 @@ public class Api {
     // 项目tab
     public static final String PROJECT_TAB = BASE_URL + "project/tree/json";
 
+    // 项目列表
+    public static final String PROJECT_LIST = BASE_URL + "project/list/";
+
 
 
 }

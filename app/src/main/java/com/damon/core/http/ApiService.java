@@ -5,6 +5,7 @@ import com.damon.core.bean.ArticleListData;
 import com.damon.core.bean.BannerData;
 import com.damon.core.bean.BaseResponse;
 import com.damon.core.bean.LoginData;
+import com.damon.core.bean.ProjectListData;
 import com.damon.core.bean.ProjectTabData;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * 网络请求接口设置
@@ -41,8 +43,8 @@ public interface ApiService {
      * 首页文章列表数据
      * @return
      */
-    @GET(Api.ARTICLE+"{num}/json")
-    Observable<BaseResponse<ArticleListData>> getHomeArticleData(@Path("num") int num);
+    @GET(Api.ARTICLE+"{page}/json")
+    Observable<BaseResponse<ArticleListData>> getHomeArticleData(@Path("page") int num);
 
     /**
      * 项目分类 tab 数据
@@ -50,5 +52,14 @@ public interface ApiService {
      */
     @GET(Api.PROJECT_TAB)
     Observable<BaseResponse<List<ProjectTabData>>> getProjectTabData();
+
+    /**
+     * 项目分类列表数据
+     * @return
+     */
+    @GET(Api.PROJECT_LIST+"{page}/json")
+    Observable<BaseResponse<List<ProjectListData>>> getProjectListData(@Path("page") int page,
+                                                                       @Query("cid") int cid);
+
 
 }

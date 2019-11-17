@@ -29,4 +29,8 @@ public class Constants {
     public static final String MENU_BUILDER = "MenuBuilder";
     public static final String ARTICLE_TITLE = "article_title";
     public static final String ARTICLE_LINK = "article_link";
+
+
+    public static final String PROJECTLIST_ID = "projectlist_id";
+    public static final String PROJECTLIST_STR = "projectlist_str";
 }

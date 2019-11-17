@@ -5,6 +5,7 @@ import com.damon.core.bean.ArticleListData;
 import com.damon.core.bean.BannerData;
 import com.damon.core.bean.BaseResponse;
 import com.damon.core.bean.LoginData;
+import com.damon.core.bean.ProjectListData;
 import com.damon.core.bean.ProjectTabData;
 import com.damon.core.http.ApiService;
 
@@ -70,6 +71,15 @@ public class DataManager {
      */
     public Observable<BaseResponse<List<ProjectTabData>>> getProjectTabData() {
         return mApiService.getProjectTabData();
+    }
+
+    /**
+     * 项目列表数据
+     *
+     * @return
+     */
+    public Observable<BaseResponse<List<ProjectListData>>> getProjectListData(int page,int cid) {
+        return mApiService.getProjectListData(page,cid);
     }
 
 

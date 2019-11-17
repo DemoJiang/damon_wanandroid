@@ -3,7 +3,6 @@ package com.damon.ui.project;
 import com.damon.base.AYBaseObserver;
 import com.damon.base.presenter.BasePresenter;
 import com.damon.core.DataManager;
-import com.damon.core.bean.BannerData;
 import com.damon.core.bean.BaseResponse;
 import com.damon.core.bean.ProjectTabData;
 

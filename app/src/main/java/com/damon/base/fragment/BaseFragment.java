@@ -32,6 +32,7 @@ public abstract class BaseFragment extends Fragment implements IView {
 
     protected abstract void onAttachView();            // 注入 view
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
